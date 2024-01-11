@@ -69,7 +69,7 @@ print("")
 print("======================================================================================")
 
 
-# Write information to .txt
+# Source 3. Write information to .txt
 
 file_path = "analysis/PyPoll_analysis.txt"
 
@@ -90,7 +90,10 @@ file.write("\n" + "")
 
 for row in candidate_summary:
     
-    file.write("\n" + row[0] + " received " + str(vote_percent) + "%" + " of the votes." + " " + str(row[1]))
+    # Source 1 Rounding to 'x' decimals
+    vote_percent2 = round(row[1] / sum(candidate_count) * 100, 3)
+    
+    file.write("\n" + row[0] + " received " + str(vote_percent2) + "%" + " of the votes." + " " + str(row[1]))
     file.write("\n" + "")
 
 file.write("\n" +"======================================================================================")
